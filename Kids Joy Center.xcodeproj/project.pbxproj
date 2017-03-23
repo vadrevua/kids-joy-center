@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48538F6E1E838010004590F1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48538F6D1E838010004590F1 /* TableViewController.swift */; };
 		489E2DB81E7F695D00CCE7A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489E2DB71E7F695D00CCE7A4 /* AppDelegate.swift */; };
 		489E2DBA1E7F695D00CCE7A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489E2DB91E7F695D00CCE7A4 /* ViewController.swift */; };
 		489E2DBD1E7F695D00CCE7A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 489E2DBB1E7F695D00CCE7A4 /* Main.storyboard */; };
@@ -82,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48538F6D1E838010004590F1 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		489E2DB41E7F695D00CCE7A4 /* Kids Joy Center.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Joy Center.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		489E2DB71E7F695D00CCE7A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		489E2DB91E7F695D00CCE7A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		489E2DAB1E7F695D00CCE7A4 = {
 			isa = PBXGroup;
 			children = (
+				48538F6D1E838010004590F1 /* TableViewController.swift */,
 				489E2DB61E7F695D00CCE7A4 /* Kids Joy Center */,
 				489E2DB51E7F695D00CCE7A4 /* Products */,
 			);
@@ -435,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48F0402F1E7FA4AD00A41B1F /* BalloonViewController.swift in Sources */,
+				48538F6E1E838010004590F1 /* TableViewController.swift in Sources */,
 				489E2E4E1E7F98A100CCE7A4 /* MemoryViewController.swift in Sources */,
 				489E2DBA1E7F695D00CCE7A4 /* ViewController.swift in Sources */,
 				489E2DB81E7F695D00CCE7A4 /* AppDelegate.swift in Sources */,
