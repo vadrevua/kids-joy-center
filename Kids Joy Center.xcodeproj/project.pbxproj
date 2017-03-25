@@ -83,7 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		48538F6D1E838010004590F1 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		48538F6D1E838010004590F1 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 		489E2DB41E7F695D00CCE7A4 /* Kids Joy Center.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Joy Center.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		489E2DB71E7F695D00CCE7A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		489E2DB91E7F695D00CCE7A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +174,6 @@
 		489E2DAB1E7F695D00CCE7A4 = {
 			isa = PBXGroup;
 			children = (
-				48538F6D1E838010004590F1 /* TableViewController.swift */,
 				489E2DB61E7F695D00CCE7A4 /* Kids Joy Center */,
 				489E2DB51E7F695D00CCE7A4 /* Products */,
 			);
@@ -191,6 +190,7 @@
 		489E2DB61E7F695D00CCE7A4 /* Kids Joy Center */ = {
 			isa = PBXGroup;
 			children = (
+				48538F6D1E838010004590F1 /* TableViewController.swift */,
 				489E2DB71E7F695D00CCE7A4 /* AppDelegate.swift */,
 				489E2DB91E7F695D00CCE7A4 /* ViewController.swift */,
 				489E2DBB1E7F695D00CCE7A4 /* Main.storyboard */,

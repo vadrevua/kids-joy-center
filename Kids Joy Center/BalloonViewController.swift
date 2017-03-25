@@ -39,7 +39,7 @@ class BalloonViewController: UIViewController {
         view.addSubview(imageView)
         self.title = "Balloon Pop"
         //startTimer()
-        //runGame()
+        runGame()
     }
     func getBallonSpace() -> Int{
             let random10Space = Int(arc4random_uniform(10) + 1)
@@ -52,11 +52,13 @@ class BalloonViewController: UIViewController {
         let colorNum = getBallonSpace()
         let image = UIImage(named: "color\(colorNum).png")
         let imageView = UIImageView(image: image!)
+        view.addSubview(imageView)
         if(easyIsSelected){
-        UIView.animate(withDuration: 4, delay: 0, options: [], animations: {
+         imageView.frame.origin.y = 768
+         imageView.frame.origin.x = 10
+        UIView.animate(withDuration: 3.0, delay: 0, options: [], animations: {
             
-            
-            
+            imageView.frame.origin.y -= 1000
             
         }, completion: nil)
         
