@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48538F6E1E838010004590F1 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48538F6D1E838010004590F1 /* TableViewController.swift */; };
+		488A3D4C1E87A30900A9065A /* ViewControllertestforhighscores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488A3D4B1E87A30900A9065A /* ViewControllertestforhighscores.swift */; };
 		489E2DB81E7F695D00CCE7A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489E2DB71E7F695D00CCE7A4 /* AppDelegate.swift */; };
 		489E2DBA1E7F695D00CCE7A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489E2DB91E7F695D00CCE7A4 /* ViewController.swift */; };
 		489E2DBD1E7F695D00CCE7A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 489E2DBB1E7F695D00CCE7A4 /* Main.storyboard */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		48538F6D1E838010004590F1 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
+		488A3D4B1E87A30900A9065A /* ViewControllertestforhighscores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllertestforhighscores.swift; sourceTree = "<group>"; };
 		489E2DB41E7F695D00CCE7A4 /* Kids Joy Center.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kids Joy Center.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		489E2DB71E7F695D00CCE7A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		489E2DB91E7F695D00CCE7A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				489E2DB71E7F695D00CCE7A4 /* AppDelegate.swift */,
 				489E2DB91E7F695D00CCE7A4 /* ViewController.swift */,
 				489E2DBB1E7F695D00CCE7A4 /* Main.storyboard */,
+				488A3D4B1E87A30900A9065A /* ViewControllertestforhighscores.swift */,
 				48F0402E1E7FA4AD00A41B1F /* BalloonViewController.swift */,
 				48F0402C1E7FA47100A41B1F /* SortingViewController.swift */,
 				489E2E4D1E7F98A100CCE7A4 /* MemoryViewController.swift */,
@@ -442,6 +445,7 @@
 				489E2E4E1E7F98A100CCE7A4 /* MemoryViewController.swift in Sources */,
 				489E2DBA1E7F695D00CCE7A4 /* ViewController.swift in Sources */,
 				489E2DB81E7F695D00CCE7A4 /* AppDelegate.swift in Sources */,
+				488A3D4C1E87A30900A9065A /* ViewControllertestforhighscores.swift in Sources */,
 				48F0402D1E7FA47100A41B1F /* SortingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

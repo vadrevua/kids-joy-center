@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controllertestforhighscores-->
         <scene sceneID="3fP-Kp-yDf">
             <objects>
-                <viewController id="e9l-5x-hgI" sceneMemberID="viewController">
+                <viewController id="e9l-5x-hgI" customClass="ViewControllertestforhighscores" customModule="Kids_Joy_Center" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kmR-42-gDt"/>
                         <viewControllerLayoutGuide type="bottom" id="ZlZ-UW-HAs"/>
@@ -201,7 +201,7 @@
                                 <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wjo-Zg-bbQ" id="hfb-Gs-cIy">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spo-Vu-aRf">
@@ -240,7 +240,7 @@
                         <viewControllerLayoutGuide type="top" id="iB0-o7-l8D"/>
                         <viewControllerLayoutGuide type="bottom" id="2Lz-6W-PPz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Q31-bb-KOy">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Q31-bb-KOy">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -22,7 +22,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
+       }
+
+    
+    
+    
     
     @IBAction func easyButton(_ sender: Any) {
         easyIsSelected = true
