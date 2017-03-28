@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SortingViewController: UIViewController {
+class SortingViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var easyIsSelected: Bool
     var mediumIsSelected: Bool
@@ -107,9 +107,6 @@ class SortingViewController: UIViewController {
             x += 128
         }
     }
-    
-    
-    
     
     
     
@@ -255,6 +252,8 @@ class SortingViewController: UIViewController {
     }
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageName = "air-land-water.png"
@@ -266,6 +265,10 @@ class SortingViewController: UIViewController {
         let imageContainer = UIView(frame: CGRect(x: 0, y: 50, width: 1024, height: 100))
         imageContainer.backgroundColor = UIColor.cyan
         self.view.addSubview(imageContainer)
+        
+//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+//        panGesture.delegate = self
+//        self.view.addGestureRecognizer(panGesture)
         
         if(easyIsSelected){
             isEasyPicked()

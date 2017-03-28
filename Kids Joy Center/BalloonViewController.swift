@@ -15,7 +15,9 @@ class BalloonViewController: UIViewController {
     var hardIsSelected:Bool
     var tempString: String?
     var tempBundle: Bundle?
-    var counter = 0
+    var scoreCount = 0
+    var timeCount = 1
+    var seperateCounter = 1
     
     init(easy: Bool, medium: Bool, hard: Bool) {
         self.easyIsSelected = easy
@@ -32,15 +34,9 @@ class BalloonViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-
-    func tapHandler(){
-        
-        print("tapped")
-        
-        
-    }
+    
     func balloonPop(){
-        counter += 1
+        scoreCount += 1
     }
     
     func getBallonSpace() -> Int{
@@ -51,55 +47,26 @@ class BalloonViewController: UIViewController {
     
     
     func runGame(){
-        let colorNum = getBallonSpace()
-        let image = UIImage(named: "color\(colorNum).png")
-        let imageView = UIImageView(image: image!)
-        view.addSubview(imageView)
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
-        let touchLocation = gestureRecognizer.location(in: self.view)
-        self.view.addGestureRecognizer(gestureRecognizer)
+        
         if(easyIsSelected){
-            
-            
-                imageView.frame.origin.y = 768
-                imageView.frame.origin.x = 10
-                
-            UIView.animate(withDuration: 3.0, delay: 0, options: .allowUserInteraction, animations: {
-                
-                imageView.frame.origin.y -= 768
-                print(imageView.frame.origin)
-                if(touchLocation == imageView.frame.origin){
-                imageView.isHidden = true
-                self.balloonPop()
-                }
-            }, completion: {_ in imageView.removeFromSuperview()})
-           
-           
-                
-            
-            
-            
-            
-//            presentation()!.hitTest(touchLocation) != nil
-//            
-//            
-//            
-//            
-//            let touchRecongizer = UITouch()
-//            let touch = gestureRecognizer.first
-//            let touchLocation = touch!.location(in: self.view)
-            
-//            for i in 2...self.view.subviews.count {
-//                if self.view.subviews[i-1].layer.presentation()!.hitTest(touchLocation) != nil {
-//                    print("touched subview \(i)")
-//                    self.view.subviews[i-1].backgroundColor = UIColor.black
-//                }
-//            }
-
+            addBalloonEasy()
+        }
+        
+        
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touch = touches.first
+        let touchLocation = touch!.location(in: self.view)
+        
+        for i in 2...self.view.subviews.count {
+            if self.view.subviews[i-1].layer.presentation()!.hitTest(touchLocation) != nil {
+                self.view.subviews[i-1].isHidden = true
+                self.view.subviews[2].isHidden = false
+            }
         }
     }
     
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageName = "sky-background.jpg"
@@ -108,37 +75,110 @@ class BalloonViewController: UIViewController {
         imageView.frame = self.view.frame
         view.addSubview(imageView)
         self.title = "Balloon Pop"
-    
-        //startTimer()
+        
         runGame()
+        startTimer()
+        
     }
     
-
-        
-        
-        /*
-        func startTimer(){
-            var seconds = 0
-            if(easyIsSelected){
-                seconds = 60
-            }
-            else if(mediumIsSelected){
-                seconds = 45
-            }
-            else{
-                seconds = 30
-            }
-         
-            var timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("decrementSeconds(seconds: seconds)"), userInfo: nil, repeats: true)
+    
+    
+    
+    
+    func startTimer(){
+        var seconds = 0
+        if(easyIsSelected){
+            
+            
+            var timer = Timer.scheduledTimer(timeInterval: 3.3, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
+            var secondCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(incrementSeconds), userInfo: nil, repeats: true)
             
         }
-        
-        func decrementSeconds(seconds: Int){
-            var second = seconds
-            second -= 1
-            print(second)
+            
+        else if(mediumIsSelected){
+            var timer = Timer.scheduledTimer(timeInterval: 2.6, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
+            var secondCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(incrementSeconds), userInfo: nil, repeats: true)
         }
-        */
+            
+        else{
+            var timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
+            var secondCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(incrementSeconds), userInfo: nil, repeats: true)
+        }
         
+    }
     
+    func incrementSeconds(){
+        timeCount += 1
+        if(timeCount == 60){
+            endGame()
+        }
+    }
+    
+    func addBalloonEasy(){
+        let colorNum = getBallonSpace()
+        let image = UIImage(named: "color\(colorNum).png")
+        let imageView = UIImageView(image: image!)
+        view.addSubview(imageView)
+        let positionNum = getBallonSpace()
+        imageView.frame.origin.y = 768
+        
+        if(positionNum == 1){
+            imageView.frame.origin.x = 10
+        }
+        else if(positionNum == 2){
+            imageView.frame.origin.x = 110
+        }
+        else if(positionNum == 3){
+            imageView.frame.origin.x = 210
+        }
+        else if(positionNum == 4){
+            imageView.frame.origin.x = 310
+        }
+        else if(positionNum == 5){
+            imageView.frame.origin.x = 410
+        }
+        else if(positionNum == 6){
+            imageView.frame.origin.x = 510
+        }
+        else if(positionNum == 7){
+            imageView.frame.origin.x = 610
+        }
+        else if(positionNum == 8){
+            imageView.frame.origin.x = 710
+        }
+        else if(positionNum == 9){
+            imageView.frame.origin.x = 810
+        }
+        else{
+            imageView.frame.origin.x = 910
+        }
+        UIView.animate(withDuration: 3.3, delay: 0, options: .allowUserInteraction, animations: {
+            
+            imageView.frame.origin.y -= 1000
+            print(imageView.frame.origin)
+            
+        }, completion: {_ in imageView.removeFromSuperview()})
+        
+        
+        self.balloonPop()
+        seperateCounter += 1
+        
+    }
+    
+    func endGame(){
+        print(scoreCount)
+        print("End Game")
+        
+        //        let endGameAlert = UIAlertController(title: "Game Over", message: "Your Score: \(scoreCount)", preferredStyle: .actionSheet)
+        //        let action = UIAlertAction(title: "Try Again", style: .default) { (UIAlertAction) in
+        //            self.scoreCount = 0
+        //            self.timeCount = 0
+        //        }
+        //        endGameAlert.addAction(action)
+        //
+        //        endGameAlert.popoverPresentationController?.sourceView = self.view
+        //        self.present(endGameAlert, animated: true, completion: nil)
+        
+        
+    }
 }

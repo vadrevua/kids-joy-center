@@ -15,6 +15,8 @@ class MemoryViewController: UIViewController {
     var hardIsSelected:Bool
     var tempString: String?
     var tempBundle: Bundle?
+    var x = 1
+    var y = 1
     
     init(easy: Bool, medium: Bool, hard: Bool) {
         self.easyIsSelected = easy
@@ -30,53 +32,156 @@ class MemoryViewController: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let imageName = "background.jpg"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        imageView.frame = self.view.frame
-        view.addSubview(imageView)
-        self.title = "Memory Game"
-        
-        
-        
+    func addTiles(){
+        var imageView1 = [UIImageView]()
+        var imageView2 = [UIImageView]()
+        var imageView3 = [UIImageView]()
+        var imageView4 = [UIImageView]()
+        var imageView5 = [UIImageView]()
         if(easyIsSelected){
-//            for index in 1...6 {
-//                picturesArr.append((UIImage(named: "\(index).png"))!)
-//                var newSquare : UIImageView
-//                newSquare = UIImageView(frame:CGRect(x: 0, y: 0, width: 100, height: 70))
-//                newSquare.contentMode = .scaleAspectFit
-//            }
-            
-            var height = self.view.frame.height/6
-            var width = self.view.frame.width/6
-            
-            
-            let imageName1 = "1.png"
-            let image1 = UIImage(named: imageName1)
-            let image1View = UIImageView(image: image1)
-            let imageName2 = "2.png"
-            let image2 = UIImage(named: imageName2)
-            let image2View = UIImageView(image: image2)
-            let imageName3 = "3.png"
-            let image3 = UIImage(named: imageName3)
-            let image3View = UIImageView(image: image3)
-            let imageName4 = "4.png"
-            let image4 = UIImage(named: imageName4)
-            let image4View = UIImageView(image: image4)
-            let imageName5 = "5.png"
-            let image5 = UIImage(named: imageName5)
-            let image5View = UIImageView(image: image5)
-            let imageName6 = "6.png"
-            let image6 = UIImage(named: imageName6)
-            let image6View = UIImageView(image: image6)
-            
-            
-            var imageArray:[UIImageView] = [image1View, image2View, image3View, image4View, image5View, image6View]
-            
+            var size = 150
+            var height = 180
+            var rows = 4
+            let cols = 3
+            while(rows > 0){
+                imageView1.append(UIImageView(image: UIImage(named: "question.png")!))
+                imageView2.append(UIImageView(image: UIImage(named: "question.png")!))
+                imageView3.append(UIImageView(image: UIImage(named: "question.png")!))
+                rows -= 1
+            }
+            for i in 0...cols {
+                imageView1[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView1[i].isUserInteractionEnabled = true
+                view.addSubview(imageView1[i])
+                size += 170
+            }
+            height += 170
+            size = 150
+            for i in 0...cols{
+                imageView2[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView2[i].isUserInteractionEnabled = true
+                view.addSubview(imageView2[i])
+                size += 170
+            }
+            height += 170
+            size = 150
+            for i in 0...cols{
+                imageView3[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView3[i].isUserInteractionEnabled = true
+                view.addSubview(imageView3[i])
+                size += 170
+                
+            }
+        }
+        if(mediumIsSelected){
+            var size = 150
+            var height = 180
+            var rows = 4
+            let cols = 3
+            while(rows > 0){
+                imageView1.append(UIImageView(image: UIImage(named: "question.png")!))
+                imageView2.append(UIImageView(image: UIImage(named: "question.png")!))
+                imageView3.append(UIImageView(image: UIImage(named: "question.png")!))
+                rows -= 1
+            }
+            for i in 0...cols {
+                imageView1[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView1[i].isUserInteractionEnabled = true
+                view.addSubview(imageView1[i])
+                size += 170
+            }
+            height += 170
+            size = 150
+            for i in 0...cols{
+                imageView2[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView2[i].isUserInteractionEnabled = true
+                view.addSubview(imageView2[i])
+                size += 170
+            }
+            height += 170
+            size = 150
+            for i in 0...cols{
+                imageView3[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView3[i].isUserInteractionEnabled = true
+                view.addSubview(imageView3[i])
+                size += 170
+                
+            }
+        }
+        else if(hardIsSelected){
+            var size = 150
+            var height = 180
+            var rows = 4
+            let cols = 3
+            while(rows > 0){
+                imageView1.append(UIImageView(image: UIImage(named: "question.png")!))
+                imageView2.append(UIImageView(image: UIImage(named: "question.png")!))
+                imageView3.append(UIImageView(image: UIImage(named: "question.png")!))
+                rows -= 1
+            }
+            for i in 0...cols {
+                imageView1[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView1[i].isUserInteractionEnabled = true
+                view.addSubview(imageView1[i])
+                size += 170
+            }
+            height += 170
+            size = 150
+            for i in 0...cols{
+                imageView2[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView2[i].isUserInteractionEnabled = true
+                view.addSubview(imageView2[i])
+                size += 170
+            }
+            height += 170
+            size = 150
+            for i in 0...cols{
+                imageView3[i].frame = CGRect(x: size, y: height, width: 170, height: 170)
+                imageView3[i].isUserInteractionEnabled = true
+                view.addSubview(imageView3[i])
+                size += 170
+                
+            }
+        }
     }
     
+        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touch = touches.first
+        let touchLocation = touch!.location(in: self.view)
+        
+        for i in 2...self.view.subviews.count {
+            if self.view.subviews[i-1].layer.presentation()!.hitTest(touchLocation) != nil {
+                self.view.subviews[i-1].isHidden = true
+                self.view.subviews[2].isHidden = false
+            }
+        }
+    }
     
+        func addEasyPictures(){
+            let randomPicture = Int(arc4random_uniform(10) + 1)
+            var size = 150
+            var height = 180
+        }
+        
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            let imageName = "background.jpg"
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            imageView.frame = self.view.frame
+            view.addSubview(imageView)
+            self.title = "Memory Game"
+            
+            addTiles()
+            
+            
+            
+            
+        }
+        
+        
 }
-}
+
