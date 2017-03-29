@@ -16,8 +16,11 @@ class BalloonViewController: UIViewController {
     var tempString: String?
     var tempBundle: Bundle?
     var scoreCount = 0
-    var timeCount = 1
+    var timeCount = 0
     var seperateCounter = 1
+    var timer: Timer!
+    let timerLabel = UILabel(frame: CGRect(x: 0, y: 30, width: 400, height: 100))
+    var actualTimer = 0
     
     init(easy: Bool, medium: Bool, hard: Bool) {
         self.easyIsSelected = easy
@@ -54,33 +57,26 @@ class BalloonViewController: UIViewController {
         
         
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let touch = touches.first
         let touchLocation = touch!.location(in: self.view)
         
-        for i in 2...self.view.subviews.count {
+        for i in 3...self.view.subviews.count {
             if self.view.subviews[i-1].layer.presentation()!.hitTest(touchLocation) != nil {
                 self.view.subviews[i-1].isHidden = true
                 self.view.subviews[2].isHidden = false
+            
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let imageName = "sky-background.jpg"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        imageView.frame = self.view.frame
-        view.addSubview(imageView)
-        self.title = "Balloon Pop"
-        
-        runGame()
-        startTimer()
         
     }
     
+
+   override func viewDidDisappear(_ animated: Bool) {
+        timer.invalidate()
+    }
     
     
     
@@ -90,34 +86,43 @@ class BalloonViewController: UIViewController {
         if(easyIsSelected){
             
             
-            var timer = Timer.scheduledTimer(timeInterval: 3.3, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 3.3, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
             var secondCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(incrementSeconds), userInfo: nil, repeats: true)
             
         }
             
         else if(mediumIsSelected){
-            var timer = Timer.scheduledTimer(timeInterval: 2.6, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
+             timer = Timer.scheduledTimer(timeInterval: 2.6, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
             var secondCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(incrementSeconds), userInfo: nil, repeats: true)
         }
             
         else{
-            var timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(addBalloonEasy), userInfo: nil, repeats: true)
             var secondCounter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(incrementSeconds), userInfo: nil, repeats: true)
         }
         
     }
     
     func incrementSeconds(){
+        if(easyIsSelected){actualTimer = 60}
+        if(mediumIsSelected){actualTimer = 45}
+        if(hardIsSelected){actualTimer = 30}
+        
+        
+        timerLabel.text = "Time Left: \(60-timeCount)"
         timeCount += 1
         if(timeCount == 60){
             endGame()
+            timeCount -= 1
         }
+        
     }
     
     func addBalloonEasy(){
         let colorNum = getBallonSpace()
         let image = UIImage(named: "color\(colorNum).png")
         let imageView = UIImageView(image: image!)
+        imageView.isUserInteractionEnabled = false
         view.addSubview(imageView)
         let positionNum = getBallonSpace()
         imageView.frame.origin.y = 768
@@ -160,8 +165,25 @@ class BalloonViewController: UIViewController {
         }, completion: {_ in imageView.removeFromSuperview()})
         
         
-        self.balloonPop()
+        
         seperateCounter += 1
+        self.balloonPop()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scoreCount = 0
+        let imageName = "sky-background.jpg"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = self.view.frame
+        view.addSubview(imageView)
+        timerLabel.font = timerLabel.font.withSize(20)
+        self.view.addSubview(timerLabel)
+        self.title = "Balloon Pop"
+        
+        runGame()
+        startTimer()
         
     }
     

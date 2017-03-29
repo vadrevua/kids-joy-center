@@ -15,6 +15,8 @@ class SortingViewController: UIViewController, UIGestureRecognizerDelegate {
     var hardIsSelected:Bool
     var tempString: String?
     var tempBundle: Bundle?
+    var touch = UITouch()
+    var touchLocation = CGPoint()
     
     init(easy: Bool, medium: Bool, hard: Bool) {
         self.easyIsSelected = easy
@@ -96,6 +98,7 @@ class SortingViewController: UIViewController, UIGestureRecognizerDelegate {
             //0-4, 5-9, 10-14
             let image = UIImage(named: "\(categoryVar)-\(cameThru)")
             let imageView = UIImageView(image: image!)
+            imageView.isUserInteractionEnabled = true
             pictureArray.append(imageView)
             counter += 1
         }
@@ -250,25 +253,48 @@ class SortingViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
     }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touch = touches.first!
+        touchLocation = touch.location(in: self.view)
+        for i in 2...self.view.subviews.count {
+            if self.view.subviews[i-1].layer.presentation()!.hitTest(touchLocation) != nil {
+                
+                
+            }
+        }
+    }
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //        let touch = touches.first
+        //        let touchLocation = touch!.location(in: self.view)
+        //
+        //        for i in 2...self.view.subviews.count {
+        //            if self.view.subviews[i-1].layer.presentation()!.hitTest(touchLocation) != nil {
+        self.view.frame.origin.x = touchLocation.x
+        self.view.frame.origin.y = touchLocation.y
+        
+        //            }
+        //        }
+    }
     
-    
-    
-    
+    func handler(){
+        print("dragged")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let imageName = "air-land-water.png"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image!)
+        imageView.isUserInteractionEnabled = false
         imageView.frame = self.view.frame
         view.addSubview(imageView)
         self.title = "Sorting Game"
         let imageContainer = UIView(frame: CGRect(x: 0, y: 50, width: 1024, height: 100))
         imageContainer.backgroundColor = UIColor.cyan
+        imageContainer.isUserInteractionEnabled = false
         self.view.addSubview(imageContainer)
-        
-//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
-//        panGesture.delegate = self
-//        self.view.addGestureRecognizer(panGesture)
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handler))
+        panGesture.delegate = self
+        self.view.addGestureRecognizer(panGesture)
         
         if(easyIsSelected){
             isEasyPicked()
@@ -280,7 +306,7 @@ class SortingViewController: UIViewController, UIGestureRecognizerDelegate {
             isHardPicked()
         }
         else{
-            print("something crazy happened")
+            print("Error Difficulty Not Picked")
         }
     }
     
